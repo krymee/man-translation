@@ -1,0 +1,301 @@
+LS(1)                                                     User Commands                                                     LS(1)
+
+
+
+NAME
+       ls - list directory contents
+       列出目录内容
+
+SYNOPSIS（概要）
+       ls [OPTION]... [FILE]...
+       ls [选项]... [文件或目录参数]... 
+
+DESCRIPTION（描述）
+       List information about the FILEs (the current directory by default).  Sort entries alphabetically if none of -cftuvSUX nor
+       --sort is specified.
+       列出有关FILE的信息（默认为当前目录）。如果没有指定 -cftuvSUX 或 --sort 选项，按字母顺序排列条目。
+
+       Mandatory arguments to long options are mandatory for short options too.
+       命令的长选项和短选项一样是可选的。
+
+       -a, --all
+              do not ignore entries starting with .
+              不忽略以.点开头的条目
+
+       -A, --almost-all
+              do not list implied . and ..
+              不列出以 . 和 .. 开头的隐藏条目。
+
+       --author
+              with -l, print the author of each file
+              和 -l 选项一起使用，打印每个文件的作者。
+
+       -b, --escape
+              print C-style escapes for nongraphic characters
+              打印C风格的非字符型转义字符。
+
+       --block-size=SIZE
+              scale sizes by SIZE before printing them; e.g., '--block-size=M' prints sizes in units of 1,048,576 bytes; see SIZE
+              format below
+              打印之前根据 SIZE 换算大小，例：--block-size=M，以1,048,576字节为单位打印大小，见下面 SIZE 的具体格式。
+
+       -B, --ignore-backups
+              do not list implied entries ending with ~
+              不要列出以~结尾的隐藏条目。（通常为备份文件）
+
+       -c     with  -lt: sort by, and show, ctime (time of last modification of file status information); with -l: show ctime and
+              sort by name; otherwise: sort by ctime, newest first
+              和 -lt 一起使用，显示ctime，并按ctime排序（文件最后的状态修改时间）；和 -l 一起使用，显示ctime，按文件名称排序；
+              只用 -c ，按ctime排序，最新的文件排在前面。
+
+       -C     list entries by columns
+              以列表形式列出条目（默认）
+
+       --color[=WHEN]
+              colorize the output; WHEN can be 'never', 'auto', or 'always' (the default); more info below
+              输出彩色化；WHEN 可以是 never（永不），auto（自动），always（始终，默认）；下面还有跟多信息。
+
+       -d, --directory
+              list directories themselves, not their contents
+              列出目录本身，而不是其内容。
+
+       -D, --dired
+              generate output designed for Emacs' dired mode
+              生成为Emacs的dired模式设计的输出。
+
+       -f     do not sort, enable -aU, disable -ls --color
+              不排序，启用 -aU 选项，禁用 ls --color 选项。
+
+       -F, --classify
+              append indicator (one of */=>@|) to entries
+              在条目后面附加一个指示标记（*/=>@|）
+
+       --file-type
+              likewise, except do not append '*'
+              和 -F 一样，除了不附加“*”
+
+       --format=WORD
+              across -x, commas -m, horizontal -x, long -l, single-column -1, verbose -l, vertical -C
+              定义格式，ls --format=across 等价 ls -x，其余类似。
+
+       --full-time
+              like -l --time-style=full-iso
+              类似于 ls -l --time-style=full-iso
+
+       -g     like -l, but do not list owner
+              类似于 ls -l 但是不列出文件的所有者。
+
+       --group-directories-first
+              group directories before files;
+              目录和文件分组列出，目录在文件之前。
+
+              can be augmented with a --sort option, but any use of --sort=none (-U) disables grouping
+              可以使用 --sort 选项来加强此选项，但是使用 --sort=none 可以禁止分组。
+
+       -G, --no-group
+              in a long listing, don't print group names
+              在长列表中，不打印组名称。
+
+       -h, --human-readable （人可读的）
+              with -l, print sizes in human readable format (e.g., 1K 234M 2G)
+              和 -l 一起使用，以人类可读格式打印尺寸（例如，1K 234M 2G）
+
+       --si   likewise, but use powers of 1000 not 1024
+              同 -h ，但是使用 1000 而不是 1024 来做换算。
+
+       -H, --dereference-command-line
+              follow symbolic links listed on the command line
+              遵循命令行中列出的符号链接。
+
+       --dereference-command-line-symlink-to-dir
+              follow each command line symbolic link that points to a directory
+              遵循命令行中列出的每一个指向目录的符号链接。
+
+       --hide=PATTERN
+              do not list implied entries matching shell PATTERN (overridden by -a or -A)
+              不列出匹配 shell PATTERN 的隐藏条目（被 -a 或 -A 选项覆盖）
+
+       --indicator-style=WORD
+              append indicator with style WORD to entry names: none (default), slash (-p), file-type (--file-type), classify (-F)
+              用 WORD 的样式附加一个指示标识到条目的后面，WORD: none（默认没有）
+
+       -i, --inode
+              print the index number of each file
+              打印每个文件的索引号              
+
+       -I, --ignore=PATTERN
+              do not list implied entries matching shell PATTERN
+              不要列出匹配shell PATTERN的隐含条目
+
+       -k, --kibibytes
+              default to 1024-byte blocks for disk usage
+              默认为磁盘使用的1024字节块
+
+       -l     use a long listing format
+              使用长列表格式
+
+       -L, --dereference
+              when showing file information for a symbolic link, show information for the file the link  references  rather  than
+              for the link itself
+              当显示符号链接的文件信息时，显示链接引用的文件的信息，而不是链接文件的自身信息
+
+       -m     fill width with a comma separated list of entries
+              用逗号, 来填充条目列表之间的空格分隔条目。
+
+       -n, --numeric-uid-gid
+              like -l, but list numeric user and group IDs
+              类似于 -l ，但是列出用户和组的ID数字
+
+       -N, --literal
+              print raw entry names (don't treat e.g. control characters specially)
+              打印原始条目名称（不特殊对待，例如控制字符）
+
+       -o     like -l, but do not list group information
+              类似于 -l ，但是不列出组信息
+
+       -p, --indicator-style=slash
+              append / indicator to directories
+              附加 / 指示标识到目录后面
+
+       -q, --hide-control-chars
+              print ? instead of nongraphic characters
+              打印 ？代替非图形化字符
+
+       --show-control-chars
+              show nongraphic characters as-is (the default, unless program is 'ls' and output is a terminal)
+              显示非图形字符，（默认值，除非程序为“ls”，而输出为终端）
+
+       -Q, --quote-name
+              enclose entry names in double quotes
+              用双引号将条目名称括起来
+
+       --quoting-style=WORD
+              use quoting style WORD for entry names: literal, locale, shell, shell-always, c, escape
+              使用 WORD 样式将条目引起来
+
+       -r, --reverse
+              reverse order while sorting
+              电刀排序顺序
+
+       -R, --recursive
+              list subdirectories recursively
+              递归列出子目录
+
+       -s, --size
+              print the allocated size of each file, in blocks
+              以块为单位打印每个文件的分配大小
+
+       -S     sort by file size
+              按文件大小排序
+
+       --sort=WORD
+              sort by WORD instead of name: none (-U), size (-S), time (-t), version (-v), extension (-X)
+              按 WORD 字段排序，代替名称排序
+
+       --time=WORD
+              with  -l, show time as WORD instead of default modification time: atime or access or use (-u) ctime or status (-c);
+              also use specified time as sort key if --sort=time
+              与 -l一起使用，按 WORD 定义显示时间，代替mtime，
+
+       --time-style=STYLE
+              with -l, show times using style STYLE: full-iso, long-iso, iso, locale, or +FORMAT; FORMAT is interpreted  like  in
+              'date'; if FORMAT is FORMAT1<newline>FORMAT2, then FORMAT1 applies to non-recent files and FORMAT2 to recent files;
+              if STYLE is prefixed with 'posix-', STYLE takes effect only outside the POSIX locale
+              和 -l 一起使用，使用定义的 STYLE风格显示时间
+
+       -t     sort by modification time, newest first
+              按mtime 修改时间排序，新文件排在前面
+
+       -T, --tabsize=COLS
+              assume tab stops at each COLS instead of 8
+              假定每个制表符为 COLS 而不是8
+
+       -u     with -lt: sort by, and show, access time; with -l: show access time and sort by name;  otherwise:  sort  by  access
+              time
+              与 -lt 一起使用，显示，并按atime排序；与 -l 一起使用，显示atime，按名称排序；此外，按atime排序
+
+       -U     do not sort; list entries in directory order
+              不排序 以目录顺序列出条目
+
+       -v     natural sort of (version) numbers within text
+              按照文本内的数字自然排序
+
+       -w, --width=COLS
+              assume screen width instead of current value
+              指定屏幕宽度，而不是当前值
+
+       -x     list entries by lines instead of by columns
+              按行而不是列列出条目
+
+       -X     sort alphabetically by entry extension
+              按条目扩展名按字母顺序排列
+
+       -1     list one file per line
+              每行列出一个文件
+
+       SELinux options:（SELinxu 选项）
+
+       --lcontext
+              Display security context.   Enable -l. Lines will probably be too wide for most displays.
+              显示安全上下文。启用-l。每行可能对于大多数显示器来说太宽
+
+       -Z, --context
+              Display  security  context so it fits on most displays.  Displays only mode, user, group, security context and file
+              name.
+              显示安全上下文，使其适合大多数显示器。仅显示模式，用户，组，安全上下文和文件名称。
+
+       --scontext
+              Display only security context and file name.
+              仅显示安全上下文和文件名。
+
+       --help display this help and exit
+              显示此帮助并退出
+
+       --version
+              output version information and exit
+              输出版本信息并退出
+
+       SIZE is an integer and optional unit (example: 10M is 10*1024*1024).  Units are K, M, G, T, P, E, Z, Y (powers of 1024) or
+       KB, MB, ... (powers of 1000).
+       SIZE是一个整数和可选单位（例如：10M是10 * 1024 * 1024）。单位是（K，M，G，T，P，E，Z，Y（按1024换算））
+       或者（KB，MB，...（按1000换算））
+
+       Using  color  to  distinguish  file types is disabled both by default and with --color=never.  With --color=auto, ls emits
+       color codes only when standard output is connected to a terminal.  The LS_COLORS environment variable can change the  set‐
+       tings.  Use the dircolors command to set it.
+       使用颜色区分文件类型默认情况下（--color=never）禁用。
+       使用 --color=auto选项，只有当标准输出连接到终端时，ls 才能使用颜色代码。LS_COLORS环境变量可以更改设置。
+       使用dircolors命令设置它。
+
+   Exit status:（退出状态码）
+       0      if OK,（如果执行正确）
+
+       1      if minor problems (e.g., cannot access subdirectory),
+              有点小问题（如：无法访问子目录）
+
+       2      if serious trouble (e.g., cannot access command-line argument).
+              严重问题（如：无法访问命令行参数）
+
+       GNU  coreutils online help: <http://www.gnu.org/software/coreutils/> Report ls translation bugs to <http://translationpro‐
+       ject.org/team/>
+       在线帮助
+
+AUTHOR
+       Written by Richard M. Stallman and David MacKenzie.
+
+COPYRIGHT
+       Copyright   ©   2013   Free   Software   Foundation,   Inc.    License   GPLv3+:   GNU   GPL   version    3    or    later
+       <http://gnu.org/licenses/gpl.html>.
+       This is free software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+       The  full  documentation  for ls is maintained as a Texinfo manual.  If the info and ls programs are properly installed at
+       your site, the command
+
+              info coreutils 'ls invocation'
+
+       should give you access to the complete manual.
+
+
+
+GNU coreutils 8.22                                        November 2016                                                     LS(1)
