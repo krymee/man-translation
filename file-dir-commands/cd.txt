@@ -1,0 +1,34 @@
+cd: cd [-L|[-P [-e]]] [dir]
+    Change the shell working directory.
+    更改shell工作目录
+    
+    Change the current directory to DIR.  The default DIR is the value of the HOME shell variable.
+    将当前目录更改为DIR。默认的DIR值是HOME环境变量的值。
+    
+    The variable CDPATH defines the search path for the directory containing DIR.  Alternative directory names in CDPATH are separated by a colon (:).
+    CDPATH变量定义了包含DIR目录的搜索路径.CDPATH中的其他目录名称由：冒号分隔。
+
+    A null directory name is the same as the current directory.  If DIR begins with a slash (/), then CDPATH is not used.
+    空目录名称与当前目录相同。如果DIR使用 / 开始，则不使用CDPATH
+
+    If the directory is not found, and the shell option `cdable_vars' is set, the word is assumed to be  a variable name.  If that variable has a value,its value is used for DIR.
+    如果目录没有找到，shell选项 cdable_vars 被设置DIR的值引用 cdable_vars的值。
+
+    Options:
+        -L	force symbolic links to be followed
+        强制遵循符号链接
+
+        -P	use the physical directory structure without following symbolic
+    	links
+        使用物理目录结构，不遵循符号链接
+
+        -e	if the -P option is supplied, and the current working directory
+    	cannot be determined successfully, exit with a non-zero status
+        如果提供了-P选项，以及当前工作目录无法确定成功，退出非零状态
+
+    The default is to follow symbolic links, as if `-L' were specified.
+    默认值是遵循符号链接，就像指定了`-L'一样。
+    
+    Exit Status:
+    Returns 0 if the directory is changed, and if $PWD is set successfully when
+    -P is used; non-zero otherwise.
